@@ -1,4 +1,5 @@
 # Copyright (C) 2007-2009 Daniel De Graaf
+# Even more modifications (C) 2014 - Jack Johnson (added compatibility for Doge-edition of Elemental)
 # Modificiations (C) 2011 - 2014 Brenton Edgar Scott
 # Released under the GNU Affero General Public License v3
 package Server::TS6;
@@ -890,7 +891,7 @@ $moddef{CORE} = {
 			my $nmode = $1;
 			my $nick = $net->mynick($2) or next;
 			my %mh = map {
-				tr/~!@%+/yaohv/;
+				tr/~&!@%+/yaaohv/;
 				$_ = $net->cmode2txt($_ || '');
 				/^n_(.+)/ ? ($1 => 1) : ();
 			} split //, $nmode;
